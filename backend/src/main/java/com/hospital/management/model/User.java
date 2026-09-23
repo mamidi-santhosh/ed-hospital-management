@@ -5,13 +5,11 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "users", uniqueConstraints = {
         @UniqueConstraint(columnNames = "email")
 })
-public class User {
+public class User extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,10 +34,7 @@ public class User {
     @Column(length = 20)
     private Role role;
 
-    private LocalDateTime createdAt;
-
     public User() {
-        this.createdAt = LocalDateTime.now();
     }
 
     public User(String name, String email, String password, String phone, Role role) {
@@ -48,7 +43,6 @@ public class User {
         this.password = password;
         this.phone = phone;
         this.role = role;
-        this.createdAt = LocalDateTime.now();
     }
 
     // Getters and Setters
@@ -98,13 +92,5 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }

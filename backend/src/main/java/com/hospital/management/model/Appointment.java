@@ -2,11 +2,10 @@ package com.hospital.management.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "appointments")
-public class Appointment {
+public class Appointment extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +30,7 @@ public class Appointment {
 
     private String notes;
 
-    private LocalDateTime createdAt;
-
     public Appointment() {
-        this.createdAt = LocalDateTime.now();
     }
 
     public Appointment(Patient patient, Doctor doctor, LocalDate appointmentDate, String timeSlot, String reason, AppointmentStatus status) {
@@ -44,7 +40,6 @@ public class Appointment {
         this.timeSlot = timeSlot;
         this.reason = reason;
         this.status = status;
-        this.createdAt = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -109,13 +104,5 @@ public class Appointment {
 
     public void setNotes(String notes) {
         this.notes = notes;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }
