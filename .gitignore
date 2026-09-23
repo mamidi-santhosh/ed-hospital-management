@@ -1,24 +1,76 @@
-# Operating System / IDE Files
+# ==========================================
+# Comprehensive Git Ignore Rules
+# ==========================================
+
+# OS Metadata
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# IDE & Editor Configurations
 .idea/
 .vscode/
 *.swp
+*.swo
 *.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
 
-# Node / Frontend Build & Test Outputs
+# Node.js & Vite Frontend
 node_modules/
-frontend/node_modules/
-frontend/dist/
-frontend/playwright-report/
-frontend/test-results/
+**/node_modules/
+.vite/
+**/.vite/
+dist/
+**/dist/
+build/
+**/build/
+.npm/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Java / Backend Build Outputs
+# Playwright & Testing Outputs
+playwright-report/
+**/playwright-report/
+test-results/
+**/test-results/
+blob-report/
+**/blob-report/
+playwright/.cache/
+
+# Java & Maven Backend
 target/
-backend/target/
+**/target/
+bin/
+**/bin/
+out/
+**/out/
+.mvn/
 *.class
 *.jar
+*.war
+*.ear
+*.nar
 
-# Database / Local Runtime Data
+# Database & Runtime Data
 mysql_data/
-*.log
+**/mysql_data/
+*.db
+*.sqlite
+
+# Environment Files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
