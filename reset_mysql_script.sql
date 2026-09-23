@@ -1,0 +1,3 @@
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';
+CREATE DATABASE IF NOT EXISTS hospital_db;
+FLUSH PRIVILEGES;
